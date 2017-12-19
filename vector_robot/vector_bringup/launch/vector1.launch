@@ -26,10 +26,4 @@
         args="9 vector_bringup vector_teleop.launch"
         name="teleop_bringup" output="screen"/>
         
-    <!-- Vector2 perception Teleoperation -->
-    <node pkg="si_utils" type="timed_roslaunch"
-        args="9 vector_bringup vector2.launch"
-        name="vector2_bringup" output="screen"/>
-        
-        
 </launch>
