@@ -26,6 +26,7 @@
                                        vector/left_arm/joint_states,
                                        vector/right_gripper/joint_states,
                                        vector/left_gripper/joint_states]</rosparam>
+        <rosparam param="rate">100</rosparam>
     </node>
     
     <!-- Platform specific configuration -->
