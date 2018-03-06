@@ -240,8 +240,11 @@ class SerialProxy():
                     if ose.errno != errno.EAGAIN:
                         rospy.logfatal(errno.errorcode[ose.errno])
                         rospy.signal_shutdown(errno.errorcode[ose.errno])
-                        
-            if motor_states:
+            
+            # don't publish unless we have states from all the motors, otherwise there
+            # can be "crosstalk" and motors will be assigned the position of different motors
+            if motor_states and len(motor_states) == len(self.motors):
+            # if motor_states:
                 msl = MotorStateList()
                 msl.motor_states = motor_states
                 self.motor_states_pub.publish(msl)
