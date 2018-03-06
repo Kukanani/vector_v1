@@ -29,7 +29,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <xacro:include filename="$(find vector_description)/urdf/sensors/pgr_flea3.urdf.xacro"/>
     <xacro:include filename="$(find vector_description)/urdf/sensors/pan_tilt_kinect_one.urdf.xacro" />
 
-    <property name="M_PI" value="3.14159"/>
+    <xacro:property name="M_PI" value="3.14159"/>
     
     <xacro:macro name="vector_accessories">
     

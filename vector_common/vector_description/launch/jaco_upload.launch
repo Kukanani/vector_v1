@@ -3,6 +3,6 @@
     <!--arg name="two_arms" default="false"/>
     <arg name="has_gripper" default="true"/>
         
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find vector_description)/urdf/jaco_standalone.urdf.xacro' two_arms:=$(arg two_arms) has_gripper:=$(arg has_gripper)" /-->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find vector_description)/urdf/jaco_standalone.urdf.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro '$(find vector_description)/urdf/jaco_standalone.urdf.xacro' two_arms:=$(arg two_arms) has_gripper:=$(arg has_gripper)" /-->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find vector_description)/urdf/jaco_standalone.urdf.xacro'" />
 </launch>
