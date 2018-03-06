@@ -23,7 +23,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 <robot name="pan_tilt_kinect_one" xmlns:xacro="http://ros.org/wiki/xacro">
 	<xacro:include filename="$(find vector_description)/urdf/sensors/kinect_one_sensor.urdf.xacro"/>
 
-    <property name="M_PI" value="3.14159"/>
+    <xacro:property name="M_PI" value="3.14159"/>
 
     <xacro:macro name="pan_tilt_kinect_one" params="rgbd_prefix parent *origin">  
         

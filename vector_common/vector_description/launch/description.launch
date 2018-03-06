@@ -4,7 +4,7 @@
   <arg name="tf_prefix" default=""/>
   <arg name="pub_joint_state" default="true"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(env VECTOR_DESCRIPTION)'
+  <param name="robot_description" command="$(find xacro)/xacro '$(env VECTOR_DESCRIPTION)'
     robot_name:=VECTOR" />
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
