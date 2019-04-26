@@ -1,6 +1,5 @@
 <!-- Launch file for the pan_tilt controller manager -->
 <launch>
-    <arg name="machine" default="localhost"/>
     <!-- Load controller configuration to parameter server -->
     <rosparam file="$(find vector_bringup)/launch/vector2/pan_tilt/config/pan_tilt_joint_controllers.yaml" command="load"/>
     
@@ -10,7 +9,7 @@
                 --port=pan_tilt_port
                 pan_controller
                 tilt_controller"
-          output="screen" machine="$(arg machine)"/>
+          output="screen"/>
           
     <!-- Load controller configuration to parameter server -->
     <rosparam file="$(find vector_bringup)/launch/vector2/pan_tilt/config/pan_tilt_joint_trajectory_controller.yaml" command="load"/>
@@ -22,5 +21,5 @@
                 pan_tilt_controller
                 pan_controller
                 tilt_controller"
-          output="screen" machine="$(arg machine)"/>
+          output="screen"/>
 </launch>

@@ -1,13 +1,12 @@
 <!-- -*- mode: XML -*- -->
 
 <launch>
-    <arg name="machine" default="localhost"/>
-    <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" respawn="true" output="screen" machine="$(arg machine)">
+    <node name="dynamixel_manager" pkg="dynamixel_controllers" type="controller_manager.py" respawn="true" output="screen">
         <rosparam>
             namespace: dxl_manager
             serial_ports:
                 pan_tilt_port:
-                    port_name: "/dev/ttyUSB0"
+                    port_name: "/dev/pan_tilt"
                     baud_rate: 1000000
                     min_motor_id: 1
                     max_motor_id: 3

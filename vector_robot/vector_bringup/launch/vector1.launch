@@ -1,29 +1,40 @@
 <!-- Launch file for Stanley Innovation enabled Vector1 PC startup -->
 
 <launch>
+    <param name="/ROBOT_NAME" value="poli"/>
     <!-- ROS Driver, Robot State Publisher, and sensors -->
-    <node pkg="si_utils" type="timed_roslaunch"
-        args="1 vector_bringup vector.launch"
-        name="platform_bringup" output="screen"/>
+    <include file="$(find vector_bringup)/launch/platform/vector.launch"/>
 
     <!-- Sensor bringup for platforms that contain sensors-->
-    <node pkg="si_utils" type="timed_roslaunch"
-        args="3 vector_bringup vector_sensors.launch"
-        name="sensor_bringup" output="screen"/>
+    <include file="$(find vector_bringup)/launch/sensors/vector_sensors.launch"/>
 
     <!-- Platform specific odometry estimate -->
-    <node pkg="si_utils" type="timed_roslaunch"
-        args="5 vector_bringup vector_odometry.launch"
-        name="odometry_bringup" output="screen"/>
-        
+    <include file="$(find vector_bringup)/launch/localization/vector_odometry.launch"/>
+
     <!-- Platform Manipulation -->
-    <node pkg="si_utils" type="timed_roslaunch"
-        args="7 vector_bringup vector_manipulation.launch"
-        name="manipulation_bringup" output="screen"/>    
-        
+    <include file="$(find vector_bringup)/launch/manipulation/vector_manipulation.launch"/>
+
     <!-- Platform Teleoperation -->
-    <node pkg="si_utils" type="timed_roslaunch"
-        args="9 vector_bringup vector_teleop.launch"
-        name="teleop_bringup" output="screen"/>
-        
+    <include file="$(find vector_bringup)/launch/teleop/vector_teleop.launch"/>
+
+    <group if="$(optenv VECTOR_HAS_KINECT_PAN_TILT false)">
+        <include file="$(find vector_bringup)/launch/vector2/utilities/utilities_bringup.launch">
+        </include>
+
+        <include file="$(find vector_bringup)/launch/vector2/pan_tilt/pan_tilt_controller_manager.launch">
+        </include>
+
+        <include file="$(find vector_bringup)/launch/vector2/pan_tilt/pan_tilt_controller_spawner.launch">
+        </include>
+
+        <!-- Home Pan tilt -->
+        <node pkg="si_utils" type="timed_roslaunch"
+            args="5 vector_bringup pan_tilt_home.launch"
+            name="pan_tilt_homing" output="screen"/>
+
+        <!-- Kinect 2 Sensor bringup -->
+       <!--  <include file="$(find vector_bringup)/launch/vector2/kinect2/kinect2_bridge.launch">
+            <arg name="machine" value="vector2"/>
+        </include> -->
+    </group>
 </launch>

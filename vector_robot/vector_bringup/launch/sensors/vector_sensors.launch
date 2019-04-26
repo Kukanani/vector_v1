@@ -11,7 +11,7 @@
             <!-- <param name="ip_address" value="$(optenv VECTOR_LASER1_IP 10.66.171.6)" />
             <param name="ip_port" value="$(optenv VECTOR_LASER1_PORT 10940)" />
             -->
-            <param name="port" value="/dev/ttyACM0"/>
+            <param name="port" value="/dev/hokuyo_front"/>
             <param name="frame_id" value="$(optenv LASER1_PREFIX base)_laser_link"/>
             <param name="angle_min" value="-2.2165"/>
             <param name="angle_max" value="2.2602" />
@@ -149,10 +149,13 @@
     </group>
 
     <!-- Sonar array -->
-    <node pkg="rosserial_python" type="serial_node.py" name="serial_node">
-        <param name="port" value="/dev/ttyACM1"/>
+    <!-- DISABLED. The code on the Arduino is out of date (likely uses an older ROS version).
+         The baud rate may also be incorrect. Just an FYI: we've never seen the sonar working
+         and we've never needed to use it for anything. -->
+    <!--<node pkg="rosserial_python" type="serial_node.py" name="serial_node">
+        <param name="port" value="/dev/tty_sonar"/>
         <param name="baud" value="9600"/>
-    </node>
+    </node> -->
     
 </launch> 
     

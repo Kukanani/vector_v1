@@ -3,7 +3,7 @@
 # (eg. eth0, eth1, wlan0,...etc)
 
 # Uncomment if vector2
-export ROBOT_NETWORK=enp0s25
+export ROBOT_NETWORK=enp5s0
 
 #Uncomment if vector1
 #export ROBOT_NETWORK=br0
