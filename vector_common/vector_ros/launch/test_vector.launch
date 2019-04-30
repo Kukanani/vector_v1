@@ -30,7 +30,7 @@
         args="load /vector/vector_driver $(find vector_ros)/launch/config/vector_params.yaml" />
     
     <node pkg="si_utils" type="timed_roslaunch"
-        args="5 vector_ros vector_teleop.launch"
+        args="5 vector_bringup vector_teleop.launch"
         name="vector_faults" output="screen"/>
 
 
