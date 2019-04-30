@@ -44,7 +44,7 @@ export RUN_FULL_SYSTEM_TELEOP=false
 
 # Joystick configurations for joystick set VECTOR_JOY_IS_ATTACHED if the joystick
 # is physically attached to this PC
-export VECTOR_JOY_IS_ATTACHED=false
+export VECTOR_JOY_IS_ATTACHED=true
 export VECTOR_JOY_DEV=/dev/input/js0
 export VECTOR_JOY_MAPPING=extreme3D
 export VECTOR_JOY_DEADZONE=0.1
